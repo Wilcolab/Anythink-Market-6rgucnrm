@@ -1,7 +1,19 @@
 //TODO: seeds script should come here, so we'll be able to put some data in our local env
 const mongoose = require("mongoose");
+const { required } = require("../routes/auth");
 const connection = process.env.MONGODB_URI;
 mongoose.connect(connection);
+
+const userSchema = new mongoose.Schema({
+    username:{
+        type: String,
+        required: true,
+    },
+    email:{
+        type: String,
+        required: true,
+    },
+})
 
 const User = mongoose.model("User");
 const Item = mongoose.model("Item");
