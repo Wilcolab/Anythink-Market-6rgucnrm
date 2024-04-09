@@ -17,6 +17,9 @@ var app = express();
 
 app.use(cors());
 
+const connection = process.env.MONGODB_URI;
+mongoose.connect(connection);
+
 // Normal express config defaults
 app.use(require("morgan")("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
